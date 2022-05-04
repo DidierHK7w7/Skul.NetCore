@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\didie\\BOT\\Módulo 4. ASP.NET\\Unidad 2. Curso de C# con Net.Core\\Praacticas\\Skul\\Skul.csproj",
+      "projectUniqueName": "C:\\Users\\didie\\BOT\\Módulo 4. ASP.NET\\Unidad 2. Fundamentos de C# con Net.Core\\Praacticas\\Skul\\Skul.csproj",
       "projectName": "Skul",
-      "projectPath": "C:\\Users\\didie\\BOT\\Módulo 4. ASP.NET\\Unidad 2. Curso de C# con Net.Core\\Praacticas\\Skul\\Skul.csproj",
+      "projectPath": "C:\\Users\\didie\\BOT\\Módulo 4. ASP.NET\\Unidad 2. Fundamentos de C# con Net.Core\\Praacticas\\Skul\\Skul.csproj",
       "packagesPath": "C:\\Users\\didie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\didie\\BOT\\Módulo 4. ASP.NET\\Unidad 2. Curso de C# con Net.Core\\Praacticas\\Skul\\obj\\",
+      "outputPath": "C:\\Users\\didie\\BOT\\Módulo 4. ASP.NET\\Unidad 2. Fundamentos de C# con Net.Core\\Praacticas\\Skul\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\didie\\AppData\\Roaming\\NuGet\\NuGet.Config",
