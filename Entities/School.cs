@@ -17,9 +17,16 @@ namespace Skul.Entities
         public SchoolTypes SchoolType { get; set; }
 
 
-        public School(string name, int year) =>(Name, CreationYear) = (name, year);     //Metodo constructor con lambda
+        public School(string name, int year) =>(Name, CreationYear) = (name, year);     //Metodo constructor con lambda, ()=() asignacion de tuplas
 
-        public override string ToString() => $"Name: {Name}, Tipe: {SchoolType}\nCountry: {Country}, City: {City}";
+        public School(string name, int year, SchoolTypes type, string country="", string city = "")     //Segundo constructor
+        {
+            (Name, CreationYear) = (name, year);
+            Country = country;
+            City = city;
+        }
+        
+        public override string ToString() => $"Name: \"{Name}\", Tipe: {SchoolType}\nCountry: {Country}, City: {City}";     //{System.Environment.NewLine} equivale a \n
         
     }
 }

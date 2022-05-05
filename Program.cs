@@ -6,12 +6,9 @@ namespace Skul
     public class Program{
         static void Main()
         {
-            var school = new School("Platzi Academy", 2012);
+            var school = new School("Platzi Academy", 2012, SchoolTypes.Elementary,
+            city:"Bogota", country:"Colombia");
 
-            school.Country = "Colombia";
-            school.City = "Bogota";
-
-            school.SchoolType = SchoolTypes.Elementary;
             Console.WriteLine(school);
             
         }
