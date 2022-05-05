@@ -6,13 +6,11 @@ namespace Skul
     public class Program{
         static void Main()
         {
-            var mySchool = new School();
-            mySchool.name = "Bocchi";
-            mySchool.address = "Groove Street, Los Santos";
-            mySchool.foundationYear = 2012;
+            var school = new School("Platzi Academy", 2012);
 
-            Console.WriteLine("Ringing");
-            mySchool.Ring();
+            school.Country = "Colombia";
+            school.City = "Bogota";
+            Console.WriteLine(school.Name);
             
         }
     }
