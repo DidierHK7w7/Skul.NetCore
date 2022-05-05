@@ -10,7 +10,9 @@ namespace Skul
 
             school.Country = "Colombia";
             school.City = "Bogota";
-            Console.WriteLine(school.Name);
+
+            school.SchoolType = SchoolTypes.Elementary;
+            Console.WriteLine(school);
             
         }
     }

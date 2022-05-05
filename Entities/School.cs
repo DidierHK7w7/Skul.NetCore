@@ -14,7 +14,12 @@ namespace Skul.Entities
         public string Country { get; set; }
         public string City { get; set; }
 
+        public SchoolTypes SchoolType { get; set; }
+
 
         public School(string name, int year) =>(Name, CreationYear) = (name, year);     //Metodo constructor con lambda
+
+        public override string ToString() => $"Name: {Name}, Tipe: {SchoolType}\nCountry: {Country}, City: {City}";
+        
     }
 }
