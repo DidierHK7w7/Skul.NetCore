@@ -27,13 +27,21 @@ namespace Skul
                 new Course(){Name = "502", Working = WorkingTypes.Afternoon}
             };
             
-            otherCollection.Clear();
+            //Course temp = new Course{Name = "101-vacacional", Working = WorkingTypes.Morning};
             school.Courses.AddRange(otherCollection);
+            //school.Courses.Add(temp);
+
+            Predicate<Course> myAlgorithm = PredicateCourse;  //delegado, solo se le asignan metodos que devuelven bool y q reciben el tipo de dato especificado, en este caso Course
+            school.Courses.RemoveAll(myAlgorithm);    //Remueve todo lo que suceda con respecto a lo que devuelva el predicado
+            
+
 
             WriteLine(school+"\n");
-
             PrintSchoolCourses(school);
+            //WriteLine("Course.Hash" + temp.GetHashCode());
         }
+
+        private static bool PredicateCourse(Course courObj) => courObj.Name == "301";     //Borra el courso 301
 
         private static void PrintSchoolCourses(School school)
         {
