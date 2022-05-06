@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Skul.Entities;
 using Skul.App;
+using Skul.Utilities;
 using static System.Console;    //Para evitar escribir Console.WriteLine, y solo WriteLine
 
 namespace Skul
@@ -12,15 +13,14 @@ namespace Skul
         {
             var engine = new SchoolEngine();
             engine.InitializeValues();
-            
-            
-            WriteLine(engine.School+"\n");
+            Printer.WriteTitle("Welcome to School");
+            Printer.Ring();
             PrintSchoolCourses(engine.School);
         }
 
         private static void PrintSchoolCourses(School school)
         {
-            WriteLine("--------------------\nSchool Courses\n--------------------");
+            Printer.WriteTitle("School Courses");
 
             if (school?.Courses != null)    //? verifica si la escuela es diferente de null, si es pasa a la segunda condicion de lo contrario no
             {
