@@ -8,6 +8,9 @@ namespace Skul.Entities
         public string Name { get; set; }
         public WorkingTypes Working { get; set; }
 
+        public List<Subject> Subject { get; set; }
+        public List<Student> Student { get; set; }
+
         public Course() => UniqueId = Guid.NewGuid().ToString();    //Genera id aleatorio
     }
 }

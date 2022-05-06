@@ -3,6 +3,8 @@ namespace Skul.Entities
 {
     public class School
     {
+        public string UniqueId { get; private set; } = Guid.NewGuid().ToString();
+
         string name;
         //propiedad Name encapsula a la variable name
         public string Name
