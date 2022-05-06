@@ -1,5 +1,6 @@
 ﻿using System;
 using Skul.Entities;
+using static System.Console;    //Para evitar escribir Console.WriteLine, y solo WriteLine
 
 namespace Skul
 {
@@ -10,48 +11,28 @@ namespace Skul
             var school = new School("Platzi Academy", 2012, SchoolTypes.Elementary,
             city:"Bogota", country:"Colombia");
 
-            var courseArray = new Course[3];
-            courseArray[0] = new Course(){Name = "101"};
-            courseArray[1] = new Course(){Name = "201"};
-            courseArray[2] = new Course(){Name = "301"};
+            school.Courses = new Course[]{
+                new Course(){Name = "101"},     //Inicializacion
+                new Course(){Name = "201"},
+                new Course(){Name = "301"}
+            };
 
+            WriteLine(school+"\n");
 
-            Console.WriteLine(school);
-            Console.WriteLine("---------------------");
-
-            PrintCourses(courseArray);
+            PrintSchoolCourses(school);
         }
-        
-        private static void PrintCourses(Course[] courseArray)
+
+        private static void PrintSchoolCourses(School school)
         {
-            //Formas de imprimir un array
+            WriteLine("--------------------\nSchool Courses\n--------------------");
 
-            foreach (var item in courseArray)
+            if (school?.Courses != null)    //? verifica si la escuela es diferente de null, si es pasa a la segunda condicion de lo contrario no
             {
-                    Console.WriteLine($"Nombre: {item.Name},    id: {item.UniqueId}");
+                foreach (var item in school.Courses)
+                {
+                    WriteLine($"Nombre: {item.Name},    id: {item.UniqueId}");
+                }
             }
-
-
-            /*int count = 0;
-            while (count < courseArray.Length)
-            {
-                Console.WriteLine($"Nombre: {courseArray[count].Name}, id: {courseArray[count].UniqueId}");
-                count++;
-            }*/
-
-
-            /*int count = 0;
-            do
-            {
-                Console.WriteLine($"Nombre: {courseArray[count].Name}, id: {courseArray[count].UniqueId}");
-                count++;
-            } while (count++ < courseArray.Length);*/
-
-
-            /*for (int i = 0; i < courseArray.Length; i++)
-            {
-                Console.WriteLine($"Nombre: {courseArray[i].Name}, id: {courseArray[i].UniqueId}");
-            }*/
         }
     }
 }

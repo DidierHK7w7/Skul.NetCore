@@ -16,6 +16,8 @@ namespace Skul.Entities
 
         public SchoolTypes SchoolType { get; set; }
 
+        public Course[] Courses { get; set; }
+
 
         public School(string name, int year) =>(Name, CreationYear) = (name, year);     //Metodo constructor con lambda, ()=() asignacion de tuplas
 
