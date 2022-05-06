@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Skul.Entities;
 using static System.Console;    //Para evitar escribir Console.WriteLine, y solo WriteLine
 
@@ -11,11 +12,23 @@ namespace Skul
             var school = new School("Platzi Academy", 2012, SchoolTypes.Elementary,
             city:"Bogota", country:"Colombia");
 
-            school.Courses = new Course[]{
-                new Course(){Name = "101"},     //Inicializacion
-                new Course(){Name = "201"},
-                new Course(){Name = "301"}
+            school.Courses = new List<Course>(){   //Lista generica
+                new Course(){Name = "101", Working = WorkingTypes.Morning},     //Inicializacion
+                new Course(){Name = "201", Working = WorkingTypes.Morning},
+                new Course(){Name = "301", Working = WorkingTypes.Morning}
             };
+            school.Courses.Add(new Course{Name="102", Working = WorkingTypes.Afternoon});
+            school.Courses.Add(new Course{Name="202", Working = WorkingTypes.Afternoon});
+
+
+            var otherCollection = new List<Course>(){   //Lista generica
+                new Course(){Name = "401", Working = WorkingTypes.Morning},     //Inicializacion
+                new Course(){Name = "501", Working = WorkingTypes.Morning},
+                new Course(){Name = "502", Working = WorkingTypes.Afternoon}
+            };
+            
+            otherCollection.Clear();
+            school.Courses.AddRange(otherCollection);
 
             WriteLine(school+"\n");
 
