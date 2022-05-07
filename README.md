@@ -1,2 +1,6 @@
-# Skul.NetCore
-Fundamentos de C# con .Net Core
+## Proyecto de platzi, Fundamentos de C# con .NET Core 2018
+
+* .NET Core 6.0
+* Visual Studio Code
+
+>"Etapa 4 / 9. Proyecto en desarrollo..."
