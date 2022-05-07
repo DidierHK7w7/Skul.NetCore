@@ -73,13 +73,26 @@ namespace Skul.App
 
         private void LoadEvaluations()
         {
-            throw new NotImplementedException();
+            Random rnd = new Random();      //Semilla System.Environment.TickCount, es el numero en milisegundos que ha pasado al arrancar el OS
+            foreach(var course in School.Courses)
+            {
+                foreach(var subject in course.Subjects)
+                {
+                    foreach(var student in course.Students)
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var ev = new Evaluations(){
+                                Subject = subject,
+                                Name = $"{subject.Name} Ev#{i+1}",
+                                Grade = (float)(5 * rnd.NextDouble()),  //Cast float
+                                Student = student
+                            };
+                            student.EvaluationsList.Add(ev);
+                        }
+                    }
+                }
+            }
         }
-
-        
-
-        
-
-        
     }
 }

@@ -9,7 +9,7 @@ namespace Skul.Entities
         public Student Student { get; set; }
         public Subject Subject { get; set; }
 
-        public float Grad { get; set; }
+        public float Grade { get; set; }
 
         public Evaluations() => UniqueId = Guid.NewGuid().ToString();
     }
