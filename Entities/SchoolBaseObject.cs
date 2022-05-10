@@ -2,7 +2,7 @@ using System;
 
 namespace Skul.Entities
 {
-    public class SchoolBaseObject
+    public abstract class SchoolBaseObject
     {
         public string UniqueId { get; private set; }
         public string Name { get; set; }
