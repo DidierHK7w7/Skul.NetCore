@@ -18,7 +18,7 @@ namespace Skul
             PrintSchoolCourses(engine.School);
 
             int dummy = 0;
-            //var objectList = engine.GetSchoolObjects(());
+            var objectList = engine.GetSchoolObjects();
         }
 
         private static void PrintSchoolCourses(School school)
