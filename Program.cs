@@ -41,10 +41,20 @@ namespace Skul
             WriteLine($"Student:{objDummy.UniqueId}");
             WriteLine($"Student:{objDummy.GetType()}");
 
-            studentTest = (Student)ob;
-            WriteLine($"Student:{studentTest.Name}");
-            WriteLine($"Student:{studentTest.UniqueId}");
-            WriteLine($"Student:{studentTest.GetType()}");
+            var evaluation = new Evaluation(){Name="Math evaluation", Grade=4.5f};
+            Printer.WriteTitle("Evaluation");
+            WriteLine($"evaluation:{evaluation.Name}");
+            WriteLine($"evaluation:{evaluation.Grade}");
+            WriteLine($"evaluation:{evaluation.UniqueId}");
+            WriteLine($"evaluation:{evaluation.GetType()}");
+
+            ob = evaluation;
+            Printer.WriteTitle("Student");
+            WriteLine($"Student:{ob.Name}");
+            WriteLine($"Student:{ob.UniqueId}");
+            WriteLine($"Student:{ob.GetType()}");
+
+            studentTest =(Student) (SchoolBaseObject) evaluation;       //Dara error de casteo xq evaluation no es de tipo Student
         }
 
         private static void PrintSchoolCourses(School school)
