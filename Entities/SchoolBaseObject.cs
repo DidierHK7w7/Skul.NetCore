@@ -8,5 +8,7 @@ namespace Skul.Entities
         public string Name { get; set; }
 
         public SchoolBaseObject() => UniqueId = Guid.NewGuid().ToString();
+
+        public override string ToString() => $"{Name},{UniqueId}";
     }
 }

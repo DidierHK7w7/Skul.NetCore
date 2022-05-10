@@ -7,5 +7,7 @@ namespace Skul.Entities
         public Subject Subject { get; set; }
 
         public float Grade { get; set; }
+
+        public override string ToString() => $"{Grade},{Student.Name},{Subject.Name}";
     }
 }
