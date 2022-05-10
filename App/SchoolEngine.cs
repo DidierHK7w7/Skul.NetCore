@@ -17,11 +17,29 @@ namespace Skul.App
         {
             School = new School("Platzi Academy", 2012, SchoolType.Elementary,
             city:"Bogota", country:"Colombia");
-
             LoadCourses();
             LoadSubjects();
             LoadEvaluations();
         }
+
+        public List<SchoolBaseObject> GetSchoolObjects(){
+            var listObj = new List<SchoolBaseObject>();
+            listObj.Add(School);
+            listObj.AddRange(School.Courses);
+            foreach (var course in School.Courses)
+            {
+                listObj.AddRange(course.Subjects);
+                listObj.AddRange(course.Students);
+
+                foreach (var student in course.Students)
+                {
+                    listObj.AddRange(student.EvaluationsList);
+                }
+            }
+            return listObj;
+        }
+
+    #region Data loading methods
 
         private void LoadCourses()      //Cargar cursos
         {
@@ -32,7 +50,6 @@ namespace Skul.App
                 new Course(){Name = "401", Working = WorkingType.Afternoon},     //Inicializacion
                 new Course(){Name = "501", Working = WorkingType.Afternoon}
             };
-
             Random rnd = new Random();
             foreach (var curso in School.Courses)
             {
@@ -52,7 +69,6 @@ namespace Skul.App
                     new Subject{Name = "Music"},
                     new Subject{Name = "Web applications development"}
                 };
-
                 course.Subjects = listSubjects;
             }
         }
@@ -62,7 +78,6 @@ namespace Skul.App
             string[] firstName = {"Harry", "Ross", "Bruce", "Cook", "Carolyn", "Morgan", "Ran"};
             string[] middleName = {"Albert", "Walker", "Randy", "Reed", "Larry","Barnes", "Bocchi"};
             string[] lastName = {"Lois", "Wilson", "Jesse", "Campbell", "Ernest", "Rogers", "Mitake", "Hikawa"};
-
             //Producto cartesiano con LinQ
             var studentList = from n1 in firstName
                               from n2 in middleName
@@ -94,23 +109,6 @@ namespace Skul.App
                 }
             }
         }
-
-        public List<SchoolBaseObject> GetSchoolObjects(){
-            var listObj = new List<SchoolBaseObject>();
-            listObj.Add(School);
-            listObj.AddRange(School.Courses);
-            foreach (var course in School.Courses)
-            {
-                listObj.AddRange(course.Subjects);
-                listObj.AddRange(course.Students);
-
-                foreach (var student in course.Students)
-                {
-                    listObj.AddRange(student.EvaluationsList);
-                }
-            }
-            
-            return listObj;
-        }
     }
+    #endregion
 }
