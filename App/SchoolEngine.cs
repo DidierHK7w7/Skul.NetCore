@@ -15,7 +15,7 @@ namespace Skul.App
 
         public void InitializeValues()
         {
-            School = new School("Platzi Academy", 2012, SchoolTypes.Elementary,
+            School = new School("Platzi Academy", 2012, SchoolType.Elementary,
             city:"Bogota", country:"Colombia");
 
             LoadCourses();
@@ -26,11 +26,11 @@ namespace Skul.App
         private void LoadCourses()      //Cargar cursos
         {
             School.Courses = new List<Course>(){   //Lista generica
-                new Course(){Name = "101", Working = WorkingTypes.Morning},     //Inicializacion
-                new Course(){Name = "201", Working = WorkingTypes.Morning},
-                new Course(){Name = "301", Working = WorkingTypes.Morning},
-                new Course(){Name = "401", Working = WorkingTypes.Afternoon},     //Inicializacion
-                new Course(){Name = "501", Working = WorkingTypes.Afternoon}
+                new Course(){Name = "101", Working = WorkingType.Morning},     //Inicializacion
+                new Course(){Name = "201", Working = WorkingType.Morning},
+                new Course(){Name = "301", Working = WorkingType.Morning},
+                new Course(){Name = "401", Working = WorkingType.Afternoon},     //Inicializacion
+                new Course(){Name = "501", Working = WorkingType.Afternoon}
             };
 
             Random rnd = new Random();
@@ -73,16 +73,16 @@ namespace Skul.App
 
         private void LoadEvaluations()
         {
-            Random rnd = new Random();      //Semilla System.Environment.TickCount, es el numero en milisegundos que ha pasado al arrancar el OS
             foreach(var course in School.Courses)
             {
                 foreach(var subject in course.Subjects)
                 {
                     foreach(var student in course.Students)
                     {
+                        Random rnd = new Random();      //Semilla System.Environment.TickCount, es el numero en milisegundos que ha pasado al arrancar el OS
                         for (int i = 0; i < 5; i++)
                         {
-                            var ev = new Evaluations(){
+                            var ev = new Evaluation(){
                                 Subject = subject,
                                 Name = $"{subject.Name} Ev#{i+1}",
                                 Grade = (float)(5 * rnd.NextDouble()),  //Cast float

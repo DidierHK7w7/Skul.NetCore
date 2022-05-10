@@ -6,12 +6,9 @@ namespace Skul.Entities
         public string UniqueId { get; private set; }
         public string Name { get; set; }
 
-        public List<Evaluations> EvaluationsList { get; set; }
+        public List<Evaluation> EvaluationsList { get; set; } = new List<Evaluation>(){};
 
-        public Student()
-        {
-            UniqueId = Guid.NewGuid().ToString();
-            EvaluationsList = new List<Evaluations>(){};
-        }
+        public Student() => UniqueId = Guid.NewGuid().ToString();
+
     }
 }

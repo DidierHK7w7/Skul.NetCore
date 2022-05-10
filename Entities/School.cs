@@ -17,14 +17,14 @@ namespace Skul.Entities
         public string Country { get; set; }
         public string City { get; set; }
 
-        public SchoolTypes SchoolType { get; set; }
+        public SchoolType SchoolType { get; set; }
 
         public List<Course> Courses { get; set; }   //Lista generica
 
 
         public School(string name, int year) =>(Name, CreationYear) = (name, year);     //Metodo constructor con lambda, ()=() asignacion de tuplas
 
-        public School(string name, int year, SchoolTypes type, string country="", string city = "")     //Segundo constructor
+        public School(string name, int year, SchoolType type, string country="", string city = "")     //Segundo constructor
         {
             (Name, CreationYear) = (name, year);
             Country = country;

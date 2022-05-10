@@ -6,7 +6,7 @@ namespace Skul.Entities
     {
         public string UniqueId { get; private set; }
         public string Name { get; set; }
-        public WorkingTypes Working { get; set; }
+        public WorkingType Working { get; set; }
 
         public List<Subject> Subjects { get; set; }
         public List<Student> Students { get; set; }
