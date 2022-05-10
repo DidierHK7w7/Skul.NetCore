@@ -30,11 +30,13 @@ namespace Skul.Entities
         {
             Printer.DrawLine();
             Console.WriteLine("Cleaning school...");
+            
             foreach (var course in Courses)
             {
                 course.CleanPlace();
             }
-            Console.WriteLine($"School {Name} clean");
+            Printer.WriteTitle($"School {Name} clean");
+            Printer.Ring(500, amount:3);
         }
     }
 }
