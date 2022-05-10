@@ -18,12 +18,7 @@ namespace Skul
             PrintSchoolCourses(engine.School);
 
             int dummy = 0;
-            var objectList = engine.GetSchoolObjects(
-            out int evaluationCount,    //Parametros de salida
-            out int coursesCount,
-            out int subjectCount,
-            out int studentCount   //hay q especificar que es de salida con out
-            );
+            //var objectList = engine.GetSchoolObjects(());
         }
 
         private static void PrintSchoolCourses(School school)

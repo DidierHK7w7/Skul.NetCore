@@ -22,6 +22,49 @@ namespace Skul.App
             LoadEvaluations();
         }
 
+        public List<SchoolBaseObject> GetSchoolObjects(     //Sobrecarga
+            bool getEvaluations = true,
+            bool getStudents = true,
+            bool getSubjects = true,
+            bool getCourses = true
+            )
+        {
+            return GetSchoolObjects(out int dummy, out dummy, out dummy, out dummy);
+        }
+
+        public List<SchoolBaseObject> GetSchoolObjects(     //Sobrecarga2
+            out int evaluationCount,
+            bool getEvaluations = true,
+            bool getStudents = true,
+            bool getSubjects = true,
+            bool getCourses = true
+            )
+        {
+            return GetSchoolObjects(out evaluationCount, out int dummy, out dummy, out dummy);
+        }
+
+        public List<SchoolBaseObject> GetSchoolObjects(     //Sobrecarga3
+            out int evaluationCount, out int coursesCount,
+            bool getEvaluations = true,
+            bool getStudents = true,
+            bool getSubjects = true,
+            bool getCourses = true
+            )
+        {
+            return GetSchoolObjects(out evaluationCount, out coursesCount, out int dummy, out dummy);
+        }
+
+        public List<SchoolBaseObject> GetSchoolObjects(     //Sobrecarga4
+            out int evaluationCount, out int coursesCount, out int subjectCount,
+            bool getEvaluations = true,
+            bool getStudents = true,
+            bool getSubjects = true,
+            bool getCourses = true
+            )
+        {
+            return GetSchoolObjects(out evaluationCount, out coursesCount, out subjectCount, out int dummy);
+        }
+
         public List<SchoolBaseObject> GetSchoolObjects(     //Devuelve lista y conteo de evaluaciones(int)
             out int evaluationCount,    //Parametros de salida
             out int coursesCount,
