@@ -17,12 +17,7 @@ namespace Skul
             Printer.Ring();
             PrintSchoolCourses(engine.School);
 
-            var objectList = engine.GetSchoolObjects();
-
-            var ListIplace = from obj in objectList
-                            where obj is IPlace     //devuelve solo los objetos IPlace
-                            select (IPlace) obj;
-            //engine.School.CleanPlace();
+            //var objectList = engine.GetSchoolObjects(true, false, false, false);   //se convierte en tupla al devolver 2 valores diferentes
         }
 
         private static void PrintSchoolCourses(School school)

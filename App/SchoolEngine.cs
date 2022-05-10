@@ -22,22 +22,55 @@ namespace Skul.App
             LoadEvaluations();
         }
 
-        public List<SchoolBaseObject> GetSchoolObjects(){
+        public List<SchoolBaseObject> GetSchoolObjects(     //Devuelve lista y conteo de evaluaciones(int)
+            out int evaluationCount,    //Parametros de salida
+            out int coursesCount,
+            out int subjectCount,
+            out int studentCount,
+            bool getEvaluations = true,     //Valores opcionales van al final
+            bool getStudents = true,
+            bool getSubjects = true,
+            bool getCourses = true
+            )
+        {
+            evaluationCount = subjectCount = studentCount = 0;  //Asignacion multiple
+
             var listObj = new List<SchoolBaseObject>();
             listObj.Add(School);
-            listObj.AddRange(School.Courses);
+
+            if (getCourses)
+            {
+                listObj.AddRange(School.Courses);
+            }
+            coursesCount = School.Courses.Count;
             foreach (var course in School.Courses)
             {
-                listObj.AddRange(course.Subjects);
-                listObj.AddRange(course.Students);
+                subjectCount += course.Subjects.Count;
+                studentCount += course.Students.Count;
 
-                foreach (var student in course.Students)
+                if (getSubjects)
                 {
-                    listObj.AddRange(student.EvaluationsList);
+                    listObj.AddRange(course.Subjects);
+                }
+
+                if (getStudents)
+                {
+                    listObj.AddRange(course.Students);
+                }
+                
+
+                if (getEvaluations)
+                {
+                    foreach (var student in course.Students)
+                    {
+                        listObj.AddRange(student.EvaluationsList);
+                        evaluationCount += student.EvaluationsList.Count();
+                    }
                 }
             }
-            return listObj;
+            return (listObj);
         }
+
 
     #region Data loading methods
 
