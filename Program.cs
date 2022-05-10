@@ -17,7 +17,13 @@ namespace Skul
             Printer.Ring();
             PrintSchoolCourses(engine.School);
 
-            //var objectList = engine.GetSchoolObjects(true, false, false, false);   //se convierte en tupla al devolver 2 valores diferentes
+            int dummy = 0;
+            var objectList = engine.GetSchoolObjects(
+            out int evaluationCount,    //Parametros de salida
+            out int coursesCount,
+            out int subjectCount,
+            out int studentCount   //hay q especificar que es de salida con out
+            );
         }
 
         private static void PrintSchoolCourses(School school)
