@@ -1,18 +1,8 @@
 using System.Collections.Generic;
 namespace Skul.Entities
 {
-    public class School
+    public class School : SchoolBaseObject
     {
-        public string UniqueId { get; private set; } = Guid.NewGuid().ToString();
-
-        string name;
-        //propiedad Name encapsula a la variable name
-        public string Name
-        {   
-            //get retorna nombre, set asigna nombre
-            get => "Copy: "+name;
-            set => name = value.ToUpper();
-        }
         public int CreationYear{get; set;}
         public string Country { get; set; }
         public string City { get; set; }

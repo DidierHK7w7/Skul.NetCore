@@ -5,7 +5,7 @@ using Skul.Entities;
 
 namespace Skul.App
 {
-    public class SchoolEngine
+    public class SchoolEngine           //sealed, modificador de acceso, se puede crear u=instancias pero no heredar, abstract hereda pero no crea instancia
     {
         public School School { get; set; }
         public SchoolEngine()
