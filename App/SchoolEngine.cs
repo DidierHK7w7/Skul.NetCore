@@ -94,5 +94,23 @@ namespace Skul.App
                 }
             }
         }
+
+        public List<SchoolBaseObject> GetSchoolObjects(){
+            var listObj = new List<SchoolBaseObject>();
+            listObj.Add(School);
+            listObj.AddRange(School.Courses);
+            foreach (var course in School.Courses)
+            {
+                listObj.AddRange(course.Subjects);
+                listObj.AddRange(course.Students);
+
+                foreach (var student in course.Students)
+                {
+                    listObj.AddRange(student.EvaluationsList);
+                }
+            }
+            
+            return listObj;
+        }
     }
 }
