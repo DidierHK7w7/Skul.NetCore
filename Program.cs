@@ -17,8 +17,28 @@ namespace Skul
             Printer.Ring();
             PrintSchoolCourses(engine.School);
 
-            int dummy = 0;
-            var objectList = engine.GetSchoolObjects();
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();     //diccionario <llave, valor> (int, string)
+            dictionary.Add(10, "Bocchi");
+            dictionary.Add(23, "Nako");
+
+            foreach (var keyValue in dictionary)
+            {
+                WriteLine($"Key: {keyValue.Key}, Value: {keyValue.Value}");   //Imprime la llave y el valor
+            }
+
+            Printer.WriteTitle("Acceso al diccionario");
+            dictionary[0] = "Aru";      //Se asigna un key 0 con un valor
+            WriteLine(dictionary[23]);  //devuelve el valor de la llave 23
+            WriteLine(dictionary[0]);
+
+            Printer.WriteTitle("Otro diccionario");
+            var dicc = new Dictionary<string, string>();
+            dicc["Moon"] = "The Moon is Earth's only natural satellite";    //Las keys son unicas e irrepetibles
+            WriteLine(dicc["Moon"]);
+
+            //dicc.Add("Moon","Moon is a British science fiction film. It premiered in 2009");    //Se agrega la misma key pero con otro valor, generara un error porque las key son irrepetibles
+            //WriteLine(dicc["Moon"]);
+
         }
 
         private static void PrintSchoolCourses(School school)
