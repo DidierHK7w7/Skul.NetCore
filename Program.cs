@@ -19,7 +19,8 @@ namespace Skul
             //Printer.Ring();
 
             var reporter = new Reporter(engine.GetObjectDictionary());
-            reporter.GetEvaluationsList();
+            var evaluationsList = reporter.GetEvaluationsList();
+            var subjectList = reporter.GetSubjectsList();
         }
 
         private static void EventAction(object? sender, EventArgs e)

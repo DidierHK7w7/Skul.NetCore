@@ -17,17 +17,23 @@ namespace Skul.App
             _dictionary = schoolObjectDictionary;
         }
 
-        public IEnumerable<School> GetEvaluationsList()
+        public IEnumerable<Evaluation> GetEvaluationsList()
         {
-            IEnumerable<School> result;
-            if(_dictionary.TryGetValue(DictionaryKeys.School, out IEnumerable<SchoolBaseObject>list))    //TryGetValue, trata de encontrar el valor, si lo encuentra devuleve la lista, si no la devuelve null
+            if(_dictionary.TryGetValue(DictionaryKeys.Evaluation, out IEnumerable<SchoolBaseObject>list))    //TryGetValue, trata de encontrar el valor, si lo encuentra devuleve la lista, si no la devuelve null
             {
-                result = list.Cast<School>();
+                return list.Cast<Evaluation>();
             }else
             {
-                result = null;
+                return new List<Evaluation>();
             }
-            return result;
+        }
+
+        public IEnumerable<string> GetSubjectsList()
+        {
+            var evaluationsList = GetEvaluationsList();
+            
+            return (from ev in evaluationsList
+                            select ev.Subject.Name).Distinct();
         }
     }
 }
