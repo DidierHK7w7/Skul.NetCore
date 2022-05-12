@@ -27,6 +27,7 @@ namespace Skul
             }
 
             var diccTemp = engine.GetObjectDictionary();
+            engine.PrintDictionary(diccTemp);
         }
 
         private static void PrintSchoolCourses(School school)

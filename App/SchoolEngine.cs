@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Skul.Entities;
+using Skul.Utilities;
 
 namespace Skul.App
 {
@@ -20,6 +21,18 @@ namespace Skul.App
             LoadCourses();
             LoadSubjects();
             LoadEvaluations();
+        }
+
+        public void PrintDictionary(Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> dicc)
+        {
+            foreach (var obj in dicc)
+            {
+                Printer.WriteTitle(obj.Key.ToString());
+                foreach (var key in obj.Value)
+                {
+                    Console.WriteLine(key);
+                }
+            }
         }
 
         public Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> GetObjectDictionary()      //Key string, value IEnumerable, una interfaz generica de lista
