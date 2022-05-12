@@ -54,5 +54,23 @@ namespace Skul.App
             }
             return result;
         }
+
+        public Dictionary<string, IEnumerable<Object>> GetAverageStudentBySubject()
+        {
+            var result = new Dictionary<string, IEnumerable<Object>>();
+            var subjectAssessmentDic = GetAssessmentDicBySubject();
+
+            foreach (var subject in subjectAssessmentDic)
+            {
+                var dummy = from ev in subject.Value
+                            select new{
+                                ev.Student.UniqueId,
+                                studentName = ev.Student.Name,  //se le asigna una variable para evitar conflictos ya que tienen el mismo nombre de atributo
+                                evalName = ev.Name,
+                                ev.Grade
+                                };
+            }
+            return result;
+        }
     }
 }
