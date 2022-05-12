@@ -26,7 +26,7 @@ namespace Skul
                 WriteLine($"Key: {keyValue.Key}, Value: {keyValue.Value}");   //Imprime la llave y el valor
             }
 
-            engine.GetObjectDictionary();
+            var diccTemp = engine.GetObjectDictionary();
         }
 
         private static void PrintSchoolCourses(School school)

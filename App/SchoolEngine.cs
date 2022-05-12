@@ -24,23 +24,25 @@ namespace Skul.App
 
         public Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> GetObjectDictionary()      //Key string, value IEnumerable, una interfaz generica de lista
         {
-            
-
             var dictionary = new Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>>();
-        
             dictionary.Add(DictionaryKeys.School, new[] {School});   //Agrega un objeto School que contiene un array de Schools
             dictionary.Add(DictionaryKeys.Course, School.Courses.Cast<SchoolBaseObject>());     //Agrega un objeto School que contiene una lista de objetos
-
+            var tempList = new List<Evaluation>();
+            var tempSubject = new List<Subject>();
+            var tempStudent = new List<Student>();
             foreach (var course in School.Courses)
             {
-                dictionary[DictionaryKeys.Subject] = course.Subjects.Cast<SchoolBaseObject>();
-                dictionary[DictionaryKeys.Student] = course.Students.Cast<SchoolBaseObject>();   //Otra forma de asignar valores y llaves []
-
+                tempSubject.AddRange(course.Subjects);
+                tempStudent.AddRange(course.Students);
+                
                 foreach (var student in course.Students)
                 {
-                    dictionary[DictionaryKeys.Evaluation] = student.EvaluationsList.Cast<SchoolBaseObject>();
+                    tempList.AddRange(student.EvaluationsList);
                 }
             }
+            dictionary.Add(DictionaryKeys.Evaluation, tempList.Cast<SchoolBaseObject>());
+            dictionary.Add(DictionaryKeys.Subject, tempSubject.Cast<SchoolBaseObject>()); 
+            dictionary.Add(DictionaryKeys.Student, tempStudent.Cast<SchoolBaseObject>());
             return dictionary;
         }
 
