@@ -16,20 +16,10 @@ namespace Skul
             var engine = new SchoolEngine();
             engine.InitializeValues();
             Printer.WriteTitle("Welcome to School");
-            Printer.Ring();
-            //PrintSchoolCourses(engine.School);
+            //Printer.Ring();
 
-            Dictionary<int, string> dictionary = new Dictionary<int, string>();     //diccionario <llave, valor> (int, string)
-            dictionary.Add(10, "Bocchi");
-            dictionary.Add(23, "Nako");
-
-            foreach (var keyValue in dictionary)
-            {
-                WriteLine($"Key: {keyValue.Key}, Value: {keyValue.Value}");   //Imprime la llave y el valor
-            }
-
-            var diccTemp = engine.GetObjectDictionary();
-            engine.PrintDictionary(diccTemp, true);
+            var reporter = new Reporter(engine.GetObjectDictionary());
+            
         }
 
         private static void EventAction(object? sender, EventArgs e)
