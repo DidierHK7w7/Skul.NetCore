@@ -63,7 +63,7 @@ namespace Skul.App
         public Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> GetObjectDictionary()      //Key string, value IEnumerable, una interfaz generica de lista
         {
             var dictionary = new Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>>();
-            dictionary.Add(DictionaryKeys.School, new[] {School});   //Agrega un objeto School que contiene un array de Schools
+            //dictionary.Add(DictionaryKeys.School, new[] {School});   //Agrega un objeto School que contiene un array de Schools
             dictionary.Add(DictionaryKeys.Course, School.Courses.Cast<SchoolBaseObject>());     //Agrega un objeto School que contiene una lista de objetos
             var tempList = new List<Evaluation>();
             var tempSubject = new List<Subject>();

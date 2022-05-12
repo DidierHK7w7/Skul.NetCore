@@ -19,13 +19,13 @@ namespace Skul
             //Printer.Ring();
 
             var reporter = new Reporter(engine.GetObjectDictionary());
-            
+            reporter.GetEvaluationsList();
         }
 
         private static void EventAction(object? sender, EventArgs e)
         {
             Printer.WriteTitle("Coming out");
-            Printer.Ring(500, 1000, 3);
+            //Printer.Ring(500, 1000, 3);
             Printer.WriteTitle("Finished");
         }
 
