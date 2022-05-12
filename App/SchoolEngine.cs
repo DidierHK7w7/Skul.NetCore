@@ -30,6 +30,17 @@ namespace Skul.App
         
             dictionary.Add(DictionaryKeys.School, new[] {School});   //Agrega un objeto School que contiene un array de Schools
             dictionary.Add(DictionaryKeys.Course, School.Courses.Cast<SchoolBaseObject>());     //Agrega un objeto School que contiene una lista de objetos
+
+            foreach (var course in School.Courses)
+            {
+                dictionary[DictionaryKeys.Subject] = course.Subjects.Cast<SchoolBaseObject>();
+                dictionary[DictionaryKeys.Student] = course.Students.Cast<SchoolBaseObject>();   //Otra forma de asignar valores y llaves []
+
+                foreach (var student in course.Students)
+                {
+                    dictionary[DictionaryKeys.Evaluation] = student.EvaluationsList.Cast<SchoolBaseObject>();
+                }
+            }
             return dictionary;
         }
 
