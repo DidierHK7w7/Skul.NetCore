@@ -11,6 +11,8 @@ namespace Skul
     {
         static void Main()
         {
+            AppDomain.CurrentDomain.ProcessExit += EventAction;     //Activa evento cuando termine la ejecucion
+
             var engine = new SchoolEngine();
             engine.InitializeValues();
             Printer.WriteTitle("Welcome to School");
@@ -28,6 +30,13 @@ namespace Skul
 
             var diccTemp = engine.GetObjectDictionary();
             engine.PrintDictionary(diccTemp, true);
+        }
+
+        private static void EventAction(object? sender, EventArgs e)
+        {
+            Printer.WriteTitle("Coming out");
+            Printer.Ring(500, 1000, 3);
+            Printer.WriteTitle("Finished");
         }
 
         private static void PrintSchoolCourses(School school)

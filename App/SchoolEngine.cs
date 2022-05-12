@@ -226,19 +226,19 @@ namespace Skul.App
 
         private void LoadEvaluations()
         {
+            Random rnd = new Random();      //Semilla System.Environment.TickCount, es el numero en milisegundos que ha pasado al arrancar el OS
             foreach(var course in School.Courses)
             {
                 foreach(var subject in course.Subjects)
                 {
                     foreach(var student in course.Students)
                     {
-                        Random rnd = new Random();      //Semilla System.Environment.TickCount, es el numero en milisegundos que ha pasado al arrancar el OS
                         for (int i = 0; i < 5; i++)
                         {
                             var ev = new Evaluation(){
                                 Subject = subject,
                                 Name = $"{subject.Name} Ev#{i+1}",
-                                Grade = MathF.Round((float)(5 * rnd.NextDouble()), 2),  //Cast float, Math devuelve double, MathF devuelve float, 2 indica el numero de decimales
+                                Grade = MathF.Round(5 * (float)rnd.NextDouble(), 2),  //Cast float, Math devuelve double, MathF devuelve float, 2 indica el numero de decimales
                                 Student = student
                             };
                             student.EvaluationsList.Add(ev);
