@@ -15,7 +15,7 @@ namespace Skul
             engine.InitializeValues();
             Printer.WriteTitle("Welcome to School");
             Printer.Ring();
-            PrintSchoolCourses(engine.School);
+            //PrintSchoolCourses(engine.School);
 
             Dictionary<int, string> dictionary = new Dictionary<int, string>();     //diccionario <llave, valor> (int, string)
             dictionary.Add(10, "Bocchi");
@@ -27,7 +27,7 @@ namespace Skul
             }
 
             var diccTemp = engine.GetObjectDictionary();
-            engine.PrintDictionary(diccTemp);
+            engine.PrintDictionary(diccTemp, true);
         }
 
         private static void PrintSchoolCourses(School school)

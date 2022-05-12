@@ -25,28 +25,36 @@ namespace Skul.App
 
         public void PrintDictionary(Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> dicc, bool printEval = false)
         {
-            foreach (var obj in dicc)
+            foreach (var DicObj in dicc)
             {
-                Printer.WriteTitle(obj.Key.ToString());
-                foreach (var key in obj.Value)
+                Printer.WriteTitle(DicObj.Key.ToString());
+                foreach (var val in DicObj.Value)
                 {
-                    if (key is Evaluation)
+                    switch (DicObj.Key)
                     {
-                        if (printEval)
-                        {
-                            Console.WriteLine(key);
-                        }
-                    }
-                    else if (key is School)
-                    {
-                        Console.WriteLine("School: "+key);
-                    }
-                    else if (key is Student)
-                    {
-                        Console.WriteLine("Student: "+key.Name);
-                    }else
-                    {
-                        Console.WriteLine(key);
+                        case DictionaryKeys.Evaluation:
+                            if (printEval)
+                            {
+                                Console.WriteLine(val);
+                            }
+                            break;
+                        case DictionaryKeys.School:
+                            Console.WriteLine("School: "+val);
+                            break;
+                        case DictionaryKeys.Student:
+                            Console.WriteLine("Student: "+val.Name);
+                            break;
+                        case DictionaryKeys.Course:
+                            var tempCourse = val as Course;
+                            if(tempCourse != null)
+                            {
+                                int count = tempCourse.Students.Count;
+                                Console.WriteLine("Course: {0},  Number of students: {1}", val.Name, count);
+                            };
+                            break;
+                        default:
+                            Console.WriteLine(val);
+                            break;
                     }
                 }
             }
@@ -230,7 +238,7 @@ namespace Skul.App
                             var ev = new Evaluation(){
                                 Subject = subject,
                                 Name = $"{subject.Name} Ev#{i+1}",
-                                Grade = (float)(5 * rnd.NextDouble()),  //Cast float
+                                Grade = MathF.Round((float)(5 * rnd.NextDouble()), 2),  //Cast float, Math devuelve double, MathF devuelve float, 2 indica el numero de decimales
                                 Student = student
                             };
                             student.EvaluationsList.Add(ev);
