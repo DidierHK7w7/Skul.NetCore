@@ -28,12 +28,31 @@ namespace Skul.App
             }
         }
 
-        public IEnumerable<string> GetSubjectsList()
+        public IEnumerable<string> GetSubjectsList()    //sobrecarga
         {
-            var evaluationsList = GetEvaluationsList();
+            return GetSubjectsList(out var dummy);
+        }
+
+        public IEnumerable<string> GetSubjectsList(out IEnumerable<Evaluation> evaluationsList)
+        {
+            evaluationsList = GetEvaluationsList();
             
             return (from ev in evaluationsList
                             select ev.Subject.Name).Distinct();
+        }
+
+        public Dictionary<string, IEnumerable<Evaluation>> GetAssessmentDicBySubject()
+        {
+            var result = new Dictionary<string, IEnumerable<Evaluation>>();
+            var subjectsList = GetSubjectsList(out var evaluationsList);
+            foreach (var subjects in subjectsList)
+            {
+                var subjectEvaluation = from ev in evaluationsList
+                                    where ev.Subject.Name == subjects
+                                    select ev;
+                result.Add(subjects, subjectEvaluation);
+            }
+            return result;
         }
     }
 }

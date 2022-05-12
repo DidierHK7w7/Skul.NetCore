@@ -21,6 +21,8 @@ namespace Skul
             var reporter = new Reporter(engine.GetObjectDictionary());
             var evaluationsList = reporter.GetEvaluationsList();
             var subjectList = reporter.GetSubjectsList();
+
+            var EvaluationsListBySubject = reporter.GetAssessmentDicBySubject();
         }
 
         private static void EventAction(object? sender, EventArgs e)
