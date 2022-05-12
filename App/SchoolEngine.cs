@@ -22,11 +22,14 @@ namespace Skul.App
             LoadEvaluations();
         }
 
-        public Dictionary<string, IEnumerable<SchoolBaseObject>> GetObjectDictionary(){     //Key string, value IEnumerable, una interfaz generica de lista
-            var dictionary = new Dictionary<string, IEnumerable<SchoolBaseObject>>();
+        public Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> GetObjectDictionary()      //Key string, value IEnumerable, una interfaz generica de lista
+        {
+            
+
+            var dictionary = new Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>>();
         
-            dictionary.Add("School", new[] {School});   //Agrega un objeto School que contiene un array de Schools
-            dictionary.Add("Courses", School.Courses.Cast<SchoolBaseObject>());     //Agrega un objeto School que contiene una lista de objetos
+            dictionary.Add(DictionaryKeys.School, new[] {School});   //Agrega un objeto School que contiene un array de Schools
+            dictionary.Add(DictionaryKeys.Course, School.Courses.Cast<SchoolBaseObject>());     //Agrega un objeto School que contiene una lista de objetos
             return dictionary;
         }
 
