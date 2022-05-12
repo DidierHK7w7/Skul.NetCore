@@ -23,14 +23,31 @@ namespace Skul.App
             LoadEvaluations();
         }
 
-        public void PrintDictionary(Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> dicc)
+        public void PrintDictionary(Dictionary<DictionaryKeys, IEnumerable<SchoolBaseObject>> dicc, bool printEval = false)
         {
             foreach (var obj in dicc)
             {
                 Printer.WriteTitle(obj.Key.ToString());
                 foreach (var key in obj.Value)
                 {
-                    Console.WriteLine(key);
+                    if (key is Evaluation)
+                    {
+                        if (printEval)
+                        {
+                            Console.WriteLine(key);
+                        }
+                    }
+                    else if (key is School)
+                    {
+                        Console.WriteLine("School: "+key);
+                    }
+                    else if (key is Student)
+                    {
+                        Console.WriteLine("Student: "+key.Name);
+                    }else
+                    {
+                        Console.WriteLine(key);
+                    }
                 }
             }
         }
