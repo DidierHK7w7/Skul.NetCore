@@ -22,7 +22,8 @@ namespace Skul
             var evaluationsList = reporter.GetEvaluationsList();
             var subjectList = reporter.GetSubjectsList();
 
-            var EvaluationsListBySubject = reporter.GetAssessmentDicBySubject();
+            var evaluationsListBySubject = reporter.GetAssessmentDicBySubject();
+            var averagesBySubject = reporter.GetAverageStudentBySubject();
         }
 
         private static void EventAction(object? sender, EventArgs e)

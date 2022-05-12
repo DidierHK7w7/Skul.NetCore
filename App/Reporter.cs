@@ -63,12 +63,13 @@ namespace Skul.App
             foreach (var subject in subjectAssessmentDic)
             {
                 var dummy = from ev in subject.Value
-                            select new{
-                                ev.Student.UniqueId,
-                                studentName = ev.Student.Name,  //se le asigna una variable para evitar conflictos ya que tienen el mismo nombre de atributo
-                                evalName = ev.Name,
-                                ev.Grade
-                                };
+                            group ev by ev.Student.UniqueId
+                            into studentAssessmentGroup
+                            select new
+                            {
+                                StudentId = studentAssessmentGroup.Key,     //uniqueid de student
+                                Average = studentAssessmentGroup.Average(eval => eval.Grade)    //calcula promedio indicando el campo (por cada evaluacion toma la nota)
+                            };
             }
             return result;
         }
