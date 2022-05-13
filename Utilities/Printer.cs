@@ -10,6 +10,11 @@ namespace Skul.Utilities
             WriteLine("".PadLeft(tam,'-'));
         }
 
+        public static void PressEnter()
+        {   
+            WriteLine("Press enter to continue...");
+        }
+
         public static void WriteTitle(string title)
         {   
             var LineLen = title.Length + 4;

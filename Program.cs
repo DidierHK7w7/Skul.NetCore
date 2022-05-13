@@ -27,7 +27,55 @@ namespace Skul
 
             var topAveragesSubject = reporter.TopAveragesSubject(5);
 
-            
+            //Interfaz
+            Printer.WriteTitle("Capture of an evaluation by console");
+            var newEval = new Evaluation();
+            string name, gradeStr;
+            float grade;
+            WriteLine("Enter the name of the evaluation");
+            Printer.PressEnter();
+            name = ReadLine();
+
+            if (string.IsNullOrWhiteSpace(name))    //si la cadena es nulla o un espacio en blanco dispara una excepcion
+            {
+                Printer.WriteTitle("Enter a valid value");
+                WriteLine("Coming out");
+            }else
+            {
+                newEval.Name = name.ToLower();
+                WriteLine("Name entered correctly");
+            }
+
+            WriteLine("Enter the grade of the evaluation");
+            Printer.PressEnter();
+            gradeStr = ReadLine();
+            if (string.IsNullOrWhiteSpace(gradeStr))    //si la cadena es nulla o un espacio en blanco dispara una excepcion
+            {
+                Printer.WriteTitle("Enter a valid value");
+                WriteLine("Coming out");
+            }else
+            {
+                try
+                {
+                    newEval.Grade = float.Parse(gradeStr);
+                    if (newEval.Grade < 0 || newEval.Grade >5)
+                    {
+                        throw new ArgumentOutOfRangeException("The grade must be between 0 and 5");
+                    }
+                    WriteLine("Grade entered correctly");
+                }
+                catch (ArgumentOutOfRangeException arge)
+                {
+                    Printer.WriteTitle(arge.Message);
+                    WriteLine("Coming out");
+                }
+
+                catch (System.Exception)
+                {
+                    Printer.WriteTitle("Enter a valid number");
+                    WriteLine("Coming out");
+                }
+            }
         }
 
         private static void EventAction(object? sender, EventArgs e)
