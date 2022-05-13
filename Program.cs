@@ -75,6 +75,9 @@ namespace Skul
                     Printer.WriteTitle("Enter a valid number");
                     WriteLine("Coming out");
                 }
+                finally{    //siempre se ejecuta falle o no el programa
+                    Printer.WriteTitle("Finally");
+                }
             }
         }
 
