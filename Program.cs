@@ -24,6 +24,8 @@ namespace Skul
 
             var evaluationsListBySubject = reporter.GetAssessmentDicBySubject();
             var averagesBySubject = reporter.GetAverageStudentBySubject();
+
+            
         }
 
         private static void EventAction(object? sender, EventArgs e)
