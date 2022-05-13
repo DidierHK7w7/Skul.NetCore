@@ -75,5 +75,21 @@ namespace Skul.App
             }
             return result;
         }
+
+        public Dictionary<string, IEnumerable<AverageStudent>> TopAveragesSubject(int top)
+        {
+             var result = new Dictionary<string, IEnumerable<AverageStudent>>();
+             var topAverage = GetAverageStudentBySubject();
+             foreach (var average in topAverage)
+             {
+                 var avg = (from av in average.Value
+                                    orderby ((AverageStudent)av).averageStudent descending
+                                    select av).Take(top);
+
+                result.Add(average.Key, avg.Cast<AverageStudent>());
+             }
+             return result;
+        }
     }
 }
+

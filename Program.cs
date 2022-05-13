@@ -25,6 +25,8 @@ namespace Skul
             var evaluationsListBySubject = reporter.GetAssessmentDicBySubject();
             var averagesBySubject = reporter.GetAverageStudentBySubject();
 
+            var topAveragesSubject = reporter.TopAveragesSubject(5);
+
             
         }
 
